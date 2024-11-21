@@ -2,9 +2,9 @@ const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const authRoute = require("./routes/auth")
-const userRouter = require("./routes/user")
-const parcelRouter = require("./routes/parcel")
+const authRoute = require("./routes/auth");
+const userRoute = require("./routes/user");
+const parcelRoutes = require("./routes/parcel");
 
 dotenv.config();
 const app = express();
@@ -14,22 +14,25 @@ app.use(cors());
 app.use(express.json());
 
 //ROUTES
-app.use("/auth", authRoute)
-app.use("/users", userRoute)
-app.use("/parcels", parcelRoute)
+app.use("/api/v1/auth", authRoute);
+app.use("/api/v1/users", userRoute);
+app.use("/api/v1/parcels", parcelRoutes);
 
 // DATABASE CONNECTION
 const DB = process.env.DB;
-mongoose.connect(DB).then(()=>{
+mongoose
+  .connect(DB)
+  .then(() => {
     console.log("DB connection is successful");
-}).catch((err)=>{
-console.log(err)
-})
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 //SERVER
 
 const PORT = process.env.PORT;
 
-app.listen(PORT, () =>{
-    console.log(`Server is running on port ${PORT}`)
-})
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});

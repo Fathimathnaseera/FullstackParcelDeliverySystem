@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const UserSchema = mongoose.Schema(
+const parcelSchema = mongoose.Schema(
     {
     from:{type:String, required:true},
     to:{type:String, required:true},
@@ -10,7 +10,7 @@ const UserSchema = mongoose.Schema(
     recipientemail:{type:String, required:true},
     weight:{type:Number, required:true},
     cost:{type:Number, required:true},
-    date:{type:String, required:true},
+    date:{type:String, required:false},
     note:{type:String},
     feedback:{type:String},
     status:{type:Number, default:0},
