@@ -13,7 +13,8 @@ const {
 router.post("/",createParcel);  
 
 // Get all parcels
-router.get("/", getAllParcels);  
+router.get("/", getAllParcels);
+  
 // Update a parcel
 router.put("/:id", updateParcel);  
 
