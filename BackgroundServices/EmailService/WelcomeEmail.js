@@ -2,7 +2,7 @@ const ejs = require("ejs");
 const dotenv = require("dotenv");
 const sendMail = require("../models/User");
 const User = require("../models/User");
-const CryptoJs = require("crypto-js");
+const CryptoJS = require('crypto-js');
 
 dotenv.config();
 
